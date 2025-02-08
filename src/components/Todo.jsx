@@ -172,7 +172,7 @@ const Todo = () => {
           value={task}
           onChange={(e) => setTask(e.target.value)}
           placeholder="Enter a task"
-          className="w-full border-gray-300"
+          className="w-full text-black border-gray-300"
         />
         <div className="flex gap-4 w-full max-w-md">
           {/* Date and Time Pickers */}
@@ -183,11 +183,11 @@ const Todo = () => {
                 <Button
                   variant="outline"
                   className={cn(
-                    "flex w-full justify-start text-left border-gray-300",
-                    !date && "text-gray-500"
+                    "flex w-full justify-start text-left bg-purple-300 border-gray-300",
+                    !date && "text-black"
                   )}
                 >
-                  <Calendar className="mr-2 h-5 w-5 text-gray-500" />
+                  <Calendar className="mr-2 h-5 w-5 text-black" />
                   {date ? date.toLocaleDateString() : "Select Date"}
                 </Button>
               </PopoverTrigger>
@@ -207,11 +207,11 @@ const Todo = () => {
                 <Button
                   variant="outline"
                   className={cn(
-                    "flex w-full justify-start text-left border-gray-300",
+                    "flex w-full justify-start text-left bg-purple-300 border-gray-300",
                     !startTime && "text-gray-500"
                   )}
                 >
-                  <Clock className="mr-2 h-5 w-5 text-gray-500" />
+                  <Clock className="mr-2 h-5 w-5 text-black" />
                   {startTime ? formatTime(startTime) : "Start Time"}
                 </Button>
               </PopoverTrigger>
@@ -241,7 +241,7 @@ const Todo = () => {
                 <Button
                   variant="outline"
                   className={cn(
-                    "flex w-full justify-start text-left border-gray-300",
+                    "flex w-full justify-start text-left bg-purple-300 border-gray-300",
                     !endTime && "text-gray-500"
                   )}
                 >
@@ -272,7 +272,7 @@ const Todo = () => {
           </div>
 
           {/* Tag Selector */}
-          <div className="w-1/2">
+          <div className="w-1/2 ">
             <TagForTodo
               selectedTag={selectedTag}
               onSelectTag={setSelectedTag}

@@ -125,7 +125,7 @@ const Dashboard = () => {
           </div>
 
           {/* Contribution Heatmap */}
-          <div className="h-[360px] w-full overflow-x-auto flex justify-center items-center">
+          <div className="h-[300px] w-full overflow-x-auto flex justify-center items-center">
             <ResponsiveCalendar
               data={heatmapData}
               from={dateRange.from}
@@ -156,7 +156,7 @@ const Dashboard = () => {
       </Card>
 
       {/* Motivational Quote */}
-      <p className="text-center mt-6 text-lg italic font-semibold text-gray-700">
+      <p className="text-center mt-6 text-lg italic font-semibold text-black">
         "Success is the sum of small efforts, repeated day in and day out."
       </p>
     </div>

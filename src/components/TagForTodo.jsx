@@ -22,7 +22,7 @@ const TagForTodo = ({ selectedTag, onSelectTag }) => {
       <PopoverTrigger asChild>
         <Button
           variant="outline"
-          className="flex items-center gap-2 border-gray-300 w-full"
+          className="flex items-center gap-2 bg-purple-300 border-gray-300 w-full"
         >
           {selectedTag ? (
             <>
@@ -39,7 +39,7 @@ const TagForTodo = ({ selectedTag, onSelectTag }) => {
           {TAGS.map((tag) => (
             <button
               key={tag.name}
-              className={`flex items-center gap-2 p-2 rounded-md text-sm hover:bg-gray-100 w-full ${
+              className={`flex items-center gap-2 p-2 rounded-md text-sm  hover:bg-gray-100 w-full ${
                 selectedTag?.name === tag.name ? "font-bold" : ""
               }`}
               onClick={() => onSelectTag(tag)}
