@@ -19,7 +19,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-screen  bg-[#D4A6D9]  text-black flex flex-col p-4 space-y-4">
+    <div className="w-64 h-screen   text-black flex flex-col p-4 space-y-4">
       <h2 className="text-xl font-bold text-center">Dashboard</h2>
       <nav className="flex flex-col space-y-2">
         {menuItems.map((item) => (

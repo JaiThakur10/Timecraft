@@ -23,7 +23,7 @@ const DashboardLayout = () => {
       <div
         className={`fixed inset-y-0 left-0 z-50 transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform md:relative md:translate-x-0 bg-gray-900 w-64`}
+        } transition-transform md:relative md:translate-x-0  w-64`}
       >
         {/* Close button (Mobile only) */}
         <div className="md:hidden flex justify-end p-4">
@@ -38,7 +38,7 @@ const DashboardLayout = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Mobile Menu Button */}
-        <div className="md:hidden bg-gray-900 text-white p-4 flex items-center">
+        <div className="md:hidden  text-white p-4 flex items-center">
           <button onClick={() => setIsSidebarOpen(true)}>
             <FiMenu size={24} />
           </button>
