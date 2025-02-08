@@ -87,7 +87,7 @@ const Planner = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full bg-white flex flex-col items-center py-10">
+    <div className="relative min-h-screen w-full  flex flex-col items-center py-10">
       {/* Custom Scrollbar Styles */}
       <style>{`
   ::-webkit-scrollbar { display: none; }
@@ -95,7 +95,7 @@ const Planner = () => {
 
       {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:20px_20px]"></div> */}
 
-      <h1 className="text-4xl font-bold mb-6 text-purple-400 text-center relative z-10">
+      <h1 className="text-4xl font-bold mb-6 text-black text-center relative z-10">
         Planner
       </h1>
 

@@ -6,7 +6,9 @@ export default function Login() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-center mb-6">Login</h1>
+        <h1 className="text-2xl text-black font-bold text-center mb-6">
+          Login
+        </h1>
 
         {/* Google Button (Centered) */}
         <button

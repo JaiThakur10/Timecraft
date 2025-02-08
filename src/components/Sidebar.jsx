@@ -19,17 +19,17 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-64 h-screen bg-white text-black flex flex-col p-4 space-y-4">
+    <div className="w-64 h-screen  bg-[#D4A6D9]  text-black flex flex-col p-4 space-y-4">
       <h2 className="text-xl font-bold text-center">Dashboard</h2>
       <nav className="flex flex-col space-y-2">
         {menuItems.map((item) => (
           <Link
             key={item.name}
-            to={item.path} // Navigate to correct path
+            to={item.path}
             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${
               location.pathname === item.path
-                ? "bg-blue-600"
-                : "hover:bg-gray-700"
+                ? "bg-[#7E3285] text-white" // Active state color
+                : "bg-transparent hover:bg-[#9F5EA5] text-white" // Transparent by default with a hover effect
             }`}
           >
             {item.icon}
