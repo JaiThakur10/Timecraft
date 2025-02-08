@@ -22,8 +22,11 @@ export default function Navbar() {
   const handleLogout = async () => {
     try {
       await account.deleteSession("current"); // Log out user
-      setUser(null);
+      localStorage.clear(); // Clear stored user data (if any)
+      sessionStorage.clear(); // Clear session storage (if used)
+      setUser(null); // Reset user state
       navigate("/login"); // Redirect to login page
+      window.location.reload(); // Force reload to prevent stale session issues
     } catch (error) {
       console.error("Error logging out:", error);
     }
@@ -33,7 +36,7 @@ export default function Navbar() {
     <nav className="bg-white p-4 text-black">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-xl font-bold">
-          Dayight
+          Timecraft
         </Link>
         <div className="space-x-4">
           {user ? (

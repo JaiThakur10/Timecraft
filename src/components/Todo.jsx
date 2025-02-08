@@ -1,3 +1,4 @@
+import { Query } from "appwrite";
 import { useEffect, useState } from "react";
 import {
   databases,
@@ -39,9 +40,11 @@ const Todo = () => {
     const fetchTodos = async () => {
       setLoading(true);
       try {
+        const user = await account.get();
         const response = await databases.listDocuments(
           DATABASE_ID,
-          COLLECTION_ID_TODOS
+          COLLECTION_ID_TODOS,
+          [Query.equal("userId", user.$id)] // Filter todos by userId
         );
         setTodos(response.documents);
       } catch (error) {

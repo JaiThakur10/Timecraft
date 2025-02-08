@@ -1,8 +1,10 @@
+import { Query } from "appwrite"; // ✅ Import Query for filtering
 import { useEffect, useState } from "react";
 import {
   databases,
   DATABASE_ID,
   COLLECTION_ID_TODOS,
+  account,
 } from "@/services/appwrite";
 import { ResponsiveCalendar } from "@nivo/calendar";
 import { Card, CardContent } from "@/components/ui/card";
@@ -53,16 +55,22 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
+        const user = await account.get(); // ✅ Get the logged-in user
+        const userId = user.$id;
+
         const response = await databases.listDocuments(
           DATABASE_ID,
-          COLLECTION_ID_TODOS
+          COLLECTION_ID_TODOS,
+          [Query.equal("userId", userId)] // ✅ Filter todos by userId
         );
+
         setTodos(response.documents);
         updateContributions(response.documents);
       } catch (error) {
         console.error("Error fetching todos:", error);
       }
     };
+
     fetchTodos();
 
     // Update date range when screen resizes

@@ -1,8 +1,10 @@
+import { Query } from "appwrite"; // ✅ Import Query
 import { useEffect, useState } from "react";
 import {
   databases,
   DATABASE_ID,
   COLLECTION_ID_TODOS,
+  account, // ✅ Import account from Appwrite service
 } from "@/services/appwrite";
 import { Card } from "@/components/ui/card";
 import { Loader } from "@mantine/core";
@@ -63,11 +65,15 @@ const Planner = () => {
 
   useEffect(() => {
     const fetchTodos = async () => {
+      setLoading(true);
       try {
+        const user = await account.get(); // ✅ Get logged-in user
         const response = await databases.listDocuments(
           DATABASE_ID,
-          COLLECTION_ID_TODOS
+          COLLECTION_ID_TODOS,
+          [Query.equal("userId", user.$id)] // ✅ Fetch only this user's todos
         );
+
         setTodos(
           response.documents.sort((a, b) => new Date(a.date) - new Date(b.date))
         );
@@ -83,22 +89,10 @@ const Planner = () => {
   return (
     <div className="relative min-h-screen w-full bg-white flex flex-col items-center py-10">
       {/* Custom Scrollbar Styles */}
-      <style jsx>{`
-        /* Hide Scrollbar for Webkit Browsers (Chrome, Safari) */
-        ::-webkit-scrollbar {
-          display: none;
-        }
+      <style>{`
+  ::-webkit-scrollbar { display: none; }
+`}</style>
 
-        /* Hide Scrollbar for Firefox */
-        html {
-          scrollbar-width: none;
-        }
-
-        /* Hide Scrollbar for Edge & IE */
-        body {
-          -ms-overflow-style: none;
-        }
-      `}</style>
       {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:20px_20px]"></div> */}
 
       <h1 className="text-4xl font-bold mb-6 text-purple-400 text-center relative z-10">
