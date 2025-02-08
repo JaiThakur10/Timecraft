@@ -117,7 +117,7 @@ const Dashboard = () => {
           </div>
 
           {/* Contribution Heatmap */}
-          <div className="h-[350px] w-full overflow-x-auto flex justify-center items-center">
+          <div className="h-[360px] w-full overflow-x-auto flex justify-center items-center">
             <ResponsiveCalendar
               data={heatmapData}
               from={dateRange.from}
