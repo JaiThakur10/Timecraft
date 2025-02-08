@@ -16,10 +16,10 @@ export const COLLECTION_ID_PLANNER = import.meta.env
   .VITE_APPWRITE_COLLECTION_ID_PLANNER; // Added COLLECTION_ID_PLANNER
 
 // GitHub Login
-export const githubLogin = () => {
-  account.createOAuth2Session(
+export const githubLogin = async () => {
+  await account.createOAuth2Session(
     OAuthProvider.Github,
-    "http://localhost:5173/dashboard", // Redirect on success
-    "http://localhost:5173/login" // Redirect on failure
+    `${window.location.origin}/dashboard`, // Redirect on success
+    `${window.location.origin}/login` // Redirect on failure
   );
 };
