@@ -8,7 +8,7 @@ import MaxWidthWrapper from "./components/MaxWidthWrapper";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <MaxWidthWrapper>
+    <MaxWidthWrapper >
       <MantineProvider withGlobalStyles withNormalizeCSS>
         <App />
         <Toaster richColors position="top-right" />
