@@ -22,7 +22,7 @@ const DashboardLayout = () => {
       {/* Sidebar: Slide-in/out on mobile */}
       <div
         className={`fixed inset-y-0 left-0 z-50 transform ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          isSidebarOpen ? "translate-x-0 bg-purple-400" : "-translate-x-full"
         } transition-transform md:relative md:translate-x-0  w-64`}
       >
         {/* Close button (Mobile only) */}

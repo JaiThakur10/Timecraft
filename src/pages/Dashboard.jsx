@@ -30,11 +30,9 @@ const getDateRange = () => {
 
   const today = new Date();
   if (window.innerWidth < 700) {
-    // Mobile: Show last 3 months (including current)
-    const threeMonthsAgo = new Date();
-    threeMonthsAgo.setMonth(today.getMonth() - 2); // Set to 2 months before today
+    // Mobile: Show current year only
     return {
-      from: threeMonthsAgo.toISOString().split("T")[0],
+      from: `${today.getFullYear()}-01-01`,
       to: today.toISOString().split("T")[0],
     };
   } else {
@@ -132,12 +130,12 @@ const Dashboard = () => {
               to={dateRange.to}
               emptyColor="#ebedf0"
               colors={colorSchemes[selectedColor]}
-              margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+              margin={{ top: 40, right: 40, bottom: 40, left: 40 }}
               yearSpacing={50} // Increase spacing between years
               monthBorderColor="#ffffff"
               dayBorderWidth={2} // Increase border width for clarity
               dayBorderColor="#ffffff"
-              squareSize={20} // Make heatmap boxes bigger
+              squareSize={window.innerWidth < 700 ? 15 : 20} // Adjust square size based on screen width
               legends={[
                 {
                   anchor: "bottom-right",
