@@ -6,6 +6,14 @@ import autoprefixer from "autoprefixer";
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      external: ["react-icons", "react-calendar-heatmap"], // Ensures Rollup treats these as external
+    },
+  },
+  ssr: {
+    noExternal: ["react-calendar-heatmap"], // Ensures proper handling during SSR
+  },
   css: {
     postcss: {
       plugins: [tailwindcss, autoprefixer],
